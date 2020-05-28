@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Employee orang = new Employee();
+        Employee orang = new Employee(50_000,100);
         Scanner scanner = new Scanner(System.in);
         
         // orang.overtime = 5;
@@ -11,13 +11,13 @@ public class App {
         // orang.payPerHour = 100;
 
         System.out.print("Input salary: "); // output
-        orang.setSalary(scanner.nextInt());
+        // orang.setSalary(scanner.nextInt());
 
-        System.out.print("Input overtime: "); // output
-        orang.setOvertime(scanner.nextInt());
+        // System.out.print("Input overtime: "); // output
+        // orang.setOvertime(scanner.nextInt());
 
         System.out.print("Input payPerHour: "); // output
-        orang.setPayPerHour(scanner.nextInt());
+        // orang.setPayPerHour(scanner.nextInt());
 
 
         // System.out.println(orang.salary + (orang.overtime * orang.payPerHour));

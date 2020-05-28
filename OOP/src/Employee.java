@@ -5,6 +5,11 @@ public class Employee {
     private int overtime;
     private int payPerHour;
 
+    public Employee(int salary,int payPerHour){
+        setSalary(salary);
+        setPayPerHour(payPerHour);
+    }
+
     public void setSalary(int salary) {
         if (salary <= 0) {
             throw new IllegalArgumentException("Salary cannot be below 0");
@@ -16,7 +21,7 @@ public class Employee {
         return this.salary;
     }
 
-    public void setOvertime(int overtime) {
+    private void setOvertime(int overtime) {
         if (overtime < 0) {
             throw new IllegalArgumentException("Overtime cannot be below 0");
         }
@@ -38,7 +43,12 @@ public class Employee {
         return this.payPerHour;
     }
 
-    public int calcuateWage() {
+    public int calcuateWage(int overtime) {
+        setOvertime(overtime);
         return this.salary + (this.overtime * this.payPerHour);
+    }
+
+    public int calcuateWage() {
+        return this.salary;
     }
 }
