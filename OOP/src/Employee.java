@@ -5,9 +5,15 @@ public class Employee {
     private int overtime;
     private int payPerHour;
 
+    public static int employeeCount;
+
     public Employee(int salary,int payPerHour){
         setSalary(salary);
         setPayPerHour(payPerHour);
+    }
+
+    public static int printEmployeeCount(){
+        return employeeCount;
     }
 
     public void setSalary(int salary) {
@@ -49,6 +55,6 @@ public class Employee {
     }
 
     public int calcuateWage() {
-        return this.salary;
+        return calcuateWage(0);
     }
 }

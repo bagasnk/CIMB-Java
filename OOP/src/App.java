@@ -1,34 +1,33 @@
 package OOP.src;
+
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class App {
+    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Buah> listBuah = new ArrayList<Buah>();
+
     public static void main(String[] args) throws Exception {
-        Employee orang = new Employee(50_000,100);
-        Scanner scanner = new Scanner(System.in);
-        
-        // orang.overtime = 5;
-        // orang.salary = 50_000;
-        // orang.payPerHour = 100;
+        tampilMenu();
+}
 
-        System.out.print("Input salary: "); // output
-        // orang.setSalary(scanner.nextInt());
-
-        // System.out.print("Input overtime: "); // output
-        // orang.setOvertime(scanner.nextInt());
-
-        System.out.print("Input payPerHour: "); // output
-        // orang.setPayPerHour(scanner.nextInt());
-
-
-        // System.out.println(orang.salary + (orang.overtime * orang.payPerHour));
-        System.out.println(orang.calcuateWage());
-    }
-
-    public static int calculateWage(int salary,int overtime,int payPerHour){
-        return salary + (overtime*payPerHour);
-    }
-
-    public static void testing () {
-        System.out.println("Testing 123");
+    public static void tampilMenu() {
+        int pilihMenu;
+        System.out.println("TOKO KELONTONG \n1. Tambah Buah\n2. List Buah\n3. Exit");
+        do {
+            pilihMenu = scanner.nextInt();
+            switch (pilihMenu) {
+                case 1:
+                    Menu.tambahBuah();
+                    break;
+                case 2:
+                    Menu.tampilBuah();
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.out.println("Choice must be a value between 1 and 3.");
+            }
+        } while (pilihMenu != 3);
     }
 }
