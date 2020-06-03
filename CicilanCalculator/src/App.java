@@ -1,23 +1,28 @@
 package CicilanCalculator.src;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
     public static Scanner scanner = new Scanner(System.in);
     static final int BULAN_DALAM_TAHUN = 12;
-    static final int PERCENT = 100;
 
     public static void main(String[] args) throws Exception {
-        int hargaAwal;
-        int durasiCicilan;
-        double bunga;
+        // Harga Awal = P
+        // Durasi Cicilan = D (tahun)
+        // Bunga = B
+        // Bayaran per bulan = M
 
-        hargaAwal = (int) Console.readInputNumber("Harga Awal : ");
-        durasiCicilan = (int) Console.readInputNumber("Durasi Cicilan : ");
-        bunga = Console.readInputNumber("bunga : ");
+        // M = [P + (P * B / 100)] / D * 12
 
-        double bayaranPerBulan = Tampil.hitungBayaranPerbulan(hargaAwal, durasiCicilan, bunga);
-        Tampil.tampilBayaran(bayaranPerBulan);
-        Tampil.hitungSisaBayaranPerBulan(hargaAwal, durasiCicilan, bunga, bayaranPerBulan);
+        int hargaAwal = (int) Console.readInputNumber("Harga Awal: ", 1_000_000, 100_000_000);
+        int durasiCicilan = (int) Console.readInputNumber("Durasi Cicilan: ", 1);
+        double bunga = Console.readInputNumber("Bunga: ", 0);
+
+        CicilanCalculate calculator = new CicilanCalculate(hargaAwal, durasiCicilan, bunga);
+        CicilanReport report = new CicilanReport(calculator);
+
+        report.tampilBayaran();
+        report.tampilSisaBayaranPerBulan();
     }
 }
