@@ -16,7 +16,7 @@ public class Menu {
 	        System.out.println("repeat? (y/n)");
 	        String option = App.scanner.next();
 	        if (option.equalsIgnoreCase("N")) {
-	            App.tampilMenu();
+	            // App.tampilMenu();
 	            break;
 	        }
 	    }
